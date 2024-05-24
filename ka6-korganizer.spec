@@ -1,18 +1,18 @@
 #
 # Conditional build:
 %bcond_with	tests		# build with tests
-%define		kdeappsver	24.02.2
+%define		kdeappsver	24.05.0
 %define		kframever	5.94.0
 %define		qtver		5.15.2
 %define		kaname		korganizer
 Summary:	korganizer
 Name:		ka6-%{kaname}
-Version:	24.02.2
+Version:	24.05.0
 Release:	1
 License:	GPL v2+/LGPL v2.1+
 Group:		X11/Applications
 Source0:	https://download.kde.org/stable/release-service/%{kdeappsver}/src/%{kaname}-%{version}.tar.xz
-# Source0-md5:	fdca67af6741a5dfc8d83bea9e400153
+# Source0-md5:	ff4d1917ef88e4af5c3fc01288a75790
 URL:		http://www.kde.org/
 BuildRequires:	Qt6Core-devel >= %{qtver}
 BuildRequires:	Qt6DBus-devel
@@ -137,19 +137,18 @@ rm -rf $RPM_BUILD_ROOT
 %{_desktopdir}/korganizer-view.desktop
 %{_datadir}/dbus-1/services/org.kde.korganizer.service
 %dir %{_libdir}/qt6/plugins/pim6/kcms/korganizer
-%{_libdir}/qt6/plugins/pim6/kcms/korganizer/korganizer_configcolorsandfonts.so
-%{_libdir}/qt6/plugins/pim6/kcms/korganizer/korganizer_configdesignerfields.so
-%{_libdir}/qt6/plugins/pim6/kcms/korganizer/korganizer_configfreebusy.so
-%{_libdir}/qt6/plugins/pim6/kcms/korganizer/korganizer_configgroupscheduling.so
-%{_libdir}/qt6/plugins/pim6/kcms/korganizer/korganizer_configmain.so
-%{_libdir}/qt6/plugins/pim6/kcms/korganizer/korganizer_configplugins.so
-%{_libdir}/qt6/plugins/pim6/kcms/korganizer/korganizer_configtime.so
-%{_libdir}/qt6/plugins/pim6/kcms/korganizer/korganizer_configviews.so
-%{_libdir}/qt6/plugins/pim6/kcms/korganizer/korganizer_userfeedback.so
-%{_libdir}/qt6/plugins/pim6/kcms/summary/kcmapptsummary.so
-%{_libdir}/qt6/plugins/pim6/kcms/summary/kcmsdsummary.so
-%{_libdir}/qt6/plugins/pim6/kcms/summary/kcmtodosummary.so
-%{_libdir}/qt6/plugins/pim6/kontact/kontact_journalplugin.so
-%{_libdir}/qt6/plugins/pim6/kontact/kontact_korganizerplugin.so
-%{_libdir}/qt6/plugins/pim6/kontact/kontact_specialdatesplugin.so
-%{_libdir}/qt6/plugins/pim6/kontact/kontact_todoplugin.so
+%attr(755,root,root) %{_libdir}/qt6/plugins/pim6/kcms/korganizer/korganizer_configcolorsandfonts.so
+%attr(755,root,root) %{_libdir}/qt6/plugins/pim6/kcms/korganizer/korganizer_configfreebusy.so
+%attr(755,root,root) %{_libdir}/qt6/plugins/pim6/kcms/korganizer/korganizer_configgroupscheduling.so
+%attr(755,root,root) %{_libdir}/qt6/plugins/pim6/kcms/korganizer/korganizer_configmain.so
+%attr(755,root,root) %{_libdir}/qt6/plugins/pim6/kcms/korganizer/korganizer_configplugins.so
+%attr(755,root,root) %{_libdir}/qt6/plugins/pim6/kcms/korganizer/korganizer_configtime.so
+%attr(755,root,root) %{_libdir}/qt6/plugins/pim6/kcms/korganizer/korganizer_configviews.so
+%attr(755,root,root) %{_libdir}/qt6/plugins/pim6/kcms/korganizer/korganizer_userfeedback.so
+%attr(755,root,root) %{_libdir}/qt6/plugins/pim6/kcms/summary/kcmapptsummary.so
+%attr(755,root,root) %{_libdir}/qt6/plugins/pim6/kcms/summary/kcmsdsummary.so
+%attr(755,root,root) %{_libdir}/qt6/plugins/pim6/kcms/summary/kcmtodosummary.so
+%attr(755,root,root) %{_libdir}/qt6/plugins/pim6/kontact/kontact_journalplugin.so
+%attr(755,root,root) %{_libdir}/qt6/plugins/pim6/kontact/kontact_korganizerplugin.so
+%attr(755,root,root) %{_libdir}/qt6/plugins/pim6/kontact/kontact_specialdatesplugin.so
+%attr(755,root,root) %{_libdir}/qt6/plugins/pim6/kontact/kontact_todoplugin.so
