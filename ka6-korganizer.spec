@@ -1,18 +1,18 @@
 #
 # Conditional build:
 %bcond_with	tests		# build with tests
-%define		kdeappsver	24.05.2
+%define		kdeappsver	24.08.0
 %define		kframever	5.94.0
 %define		qtver		5.15.2
 %define		kaname		korganizer
 Summary:	korganizer
 Name:		ka6-%{kaname}
-Version:	24.05.2
+Version:	24.08.0
 Release:	1
 License:	GPL v2+/LGPL v2.1+
 Group:		X11/Applications
 Source0:	https://download.kde.org/stable/release-service/%{kdeappsver}/src/%{kaname}-%{version}.tar.xz
-# Source0-md5:	d27e7c7f4eafa70c0a264899494b965b
+# Source0-md5:	549cd1609d1317b6d192db25442540e9
 URL:		http://www.kde.org/
 BuildRequires:	Qt6Core-devel >= %{qtver}
 BuildRequires:	Qt6DBus-devel
@@ -78,11 +78,10 @@ KOrganizer will remind you about pending tasks, and help you keep your
 schedule.
 
 %description -l pl.UTF-8
-KOrganizer jest łatwym w użyciu programem do zarządzania
-informacją osobistą (PIM). Możesz dodawać wpisy do dziennika,
-planować spotkania, i listę zadań do zrobienia. KOrganizer
-przypomni Ci o sprawach do załatwienia i pomoże Ci trzymać się
-planu.
+KOrganizer jest łatwym w użyciu programem do zarządzania informacją
+osobistą (PIM). Możesz dodawać wpisy do dziennika, planować spotkania,
+i listę zadań do zrobienia. KOrganizer przypomni Ci o sprawach do
+załatwienia i pomoże Ci trzymać się planu.
 
 %prep
 %setup -q -n %{kaname}-%{version}
@@ -153,3 +152,8 @@ rm -rf $RPM_BUILD_ROOT
 %attr(755,root,root) %{_libdir}/qt6/plugins/pim6/kontact/kontact_korganizerplugin.so
 %attr(755,root,root) %{_libdir}/qt6/plugins/pim6/kontact/kontact_specialdatesplugin.so
 %attr(755,root,root) %{_libdir}/qt6/plugins/pim6/kontact/kontact_todoplugin.so
+%attr(755,root,root) %{_libdir}/qt6/plugins/pim6/korganizer/datenums.so
+%attr(755,root,root) %{_libdir}/qt6/plugins/pim6/korganizer/lunarphases.so
+%attr(755,root,root) %{_libdir}/qt6/plugins/pim6/korganizer/picoftheday.so
+%attr(755,root,root) %{_libdir}/qt6/plugins/pim6/korganizer/thisdayinhistory.so
+%{_iconsdir}/hicolor/scalable/status/*.svg
