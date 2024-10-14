@@ -152,6 +152,7 @@ rm -rf $RPM_BUILD_ROOT
 %attr(755,root,root) %{_libdir}/qt6/plugins/pim6/kontact/kontact_korganizerplugin.so
 %attr(755,root,root) %{_libdir}/qt6/plugins/pim6/kontact/kontact_specialdatesplugin.so
 %attr(755,root,root) %{_libdir}/qt6/plugins/pim6/kontact/kontact_todoplugin.so
+%dir %{_libdir}/qt6/plugins/pim6/korganizer
 %attr(755,root,root) %{_libdir}/qt6/plugins/pim6/korganizer/datenums.so
 %attr(755,root,root) %{_libdir}/qt6/plugins/pim6/korganizer/lunarphases.so
 %attr(755,root,root) %{_libdir}/qt6/plugins/pim6/korganizer/picoftheday.so
