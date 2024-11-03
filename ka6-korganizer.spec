@@ -8,7 +8,7 @@
 Summary:	korganizer
 Name:		ka6-%{kaname}
 Version:	24.08.2
-Release:	2
+Release:	3
 License:	GPL v2+/LGPL v2.1+
 Group:		X11/Applications
 Source0:	https://download.kde.org/stable/release-service/%{kdeappsver}/src/%{kaname}-%{version}.tar.xz
@@ -145,6 +145,7 @@ rm -rf $RPM_BUILD_ROOT
 %attr(755,root,root) %{_libdir}/qt6/plugins/pim6/kcms/korganizer/korganizer_configtime.so
 %attr(755,root,root) %{_libdir}/qt6/plugins/pim6/kcms/korganizer/korganizer_configviews.so
 %attr(755,root,root) %{_libdir}/qt6/plugins/pim6/kcms/korganizer/korganizer_userfeedback.so
+%dir %{_libdir}/qt6/plugins/pim6/kcms/summary
 %attr(755,root,root) %{_libdir}/qt6/plugins/pim6/kcms/summary/kcmapptsummary.so
 %attr(755,root,root) %{_libdir}/qt6/plugins/pim6/kcms/summary/kcmsdsummary.so
 %attr(755,root,root) %{_libdir}/qt6/plugins/pim6/kcms/summary/kcmtodosummary.so
