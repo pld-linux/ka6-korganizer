@@ -1,18 +1,18 @@
 #
 # Conditional build:
 %bcond_with	tests		# build with tests
-%define		kdeappsver	24.08.3
+%define		kdeappsver	24.12.0
 %define		kframever	5.94.0
 %define		qtver		5.15.2
 %define		kaname		korganizer
 Summary:	korganizer
 Name:		ka6-%{kaname}
-Version:	24.08.3
+Version:	24.12.0
 Release:	1
 License:	GPL v2+/LGPL v2.1+
 Group:		X11/Applications
 Source0:	https://download.kde.org/stable/release-service/%{kdeappsver}/src/%{kaname}-%{version}.tar.xz
-# Source0-md5:	9df9bc91a906ab5ea52808e683b7dcef
+# Source0-md5:	7112b433e6e135be1698eb1a11bcda46
 URL:		http://www.kde.org/
 BuildRequires:	Qt6Core-devel >= %{qtver}
 BuildRequires:	Qt6DBus-devel
@@ -26,7 +26,6 @@ BuildRequires:	ka6-akonadi-calendar-devel >= %{kdeappsver}
 BuildRequires:	ka6-akonadi-contacts-devel >= %{kdeappsver}
 BuildRequires:	ka6-akonadi-devel >= %{kdeappsver}
 BuildRequires:	ka6-akonadi-mime-devel >= %{kdeappsver}
-BuildRequires:	ka6-akonadi-notes-devel >= %{kdeappsver}
 BuildRequires:	ka6-akonadi-search-devel >= %{kdeappsver}
 BuildRequires:	ka6-calendarsupport-devel >= %{kdeappsver}
 BuildRequires:	ka6-eventviews-devel >= %{kdeappsver}
