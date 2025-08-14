@@ -1,18 +1,18 @@
 #
 # Conditional build:
 %bcond_with	tests		# build with tests
-%define		kdeappsver	25.04.3
+%define		kdeappsver	25.08.0
 %define		kframever	5.94.0
 %define		qtver		5.15.2
 %define		kaname		korganizer
 Summary:	korganizer
 Name:		ka6-%{kaname}
-Version:	25.04.3
-Release:	2
+Version:	25.08.0
+Release:	1
 License:	GPL v2+/LGPL v2.1+
 Group:		X11/Applications
 Source0:	https://download.kde.org/stable/release-service/%{kdeappsver}/src/%{kaname}-%{version}.tar.xz
-# Source0-md5:	4a438235537bd21221da609a0511c864
+# Source0-md5:	380c8c3915c09c838a27ac3154ebe983
 URL:		http://www.kde.org/
 BuildRequires:	Qt6Core-devel >= %{qtver}
 BuildRequires:	Qt6DBus-devel
@@ -137,7 +137,6 @@ rm -rf $RPM_BUILD_ROOT
 %{_iconsdir}/hicolor/scalable/apps/*.svg*
 %{_datadir}/korganizer
 %{_datadir}/metainfo/org.kde.korganizer.appdata.xml
-%{_datadir}/knsrcfiles/korganizer.knsrc
 %{_datadir}/qlogging-categories6/korganizer.categories
 %{_datadir}/qlogging-categories6/korganizer.renamecategories
 %{_desktopdir}/korganizer-view.desktop
