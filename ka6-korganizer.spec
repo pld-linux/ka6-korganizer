@@ -1,18 +1,18 @@
 #
 # Conditional build:
 %bcond_with	tests		# build with tests
-%define		kdeappsver	26.04.1
+%define		kdeappsver	26.04.2
 %define		kframever	5.94.0
 %define		qtver		5.15.2
 %define		kaname		korganizer
 Summary:	korganizer
 Name:		ka6-%{kaname}
-Version:	26.04.1
+Version:	26.04.2
 Release:	1
 License:	GPL v2+/LGPL v2.1+
 Group:		X11/Applications
 Source0:	https://download.kde.org/stable/release-service/%{kdeappsver}/src/%{kaname}-%{version}.tar.xz
-# Source0-md5:	b6d71cf1c06e1c58039236a5ae758b67
+# Source0-md5:	f2feee1286d3e74bed98647b3c378dc8
 URL:		http://www.kde.org/
 BuildRequires:	Qt6Core-devel >= %{qtver}
 BuildRequires:	Qt6DBus-devel
@@ -67,7 +67,7 @@ BuildRequires:	rpmbuild(macros) >= 1.164
 BuildRequires:	shared-mime-info
 BuildRequires:	tar >= 1:1.22
 BuildRequires:	xz
-Requires(post,postun):	desktop-file-utils
+Requires:	%{name}-data = %{version}-%{release}
 %requires_eq_to Qt6Core Qt6Core-devel
 Obsoletes:	ka5-%{kaname} < %{version}
 ExcludeArch:	x32 i686
@@ -84,6 +84,20 @@ KOrganizer jest łatwym w użyciu programem do zarządzania informacją
 osobistą (PIM). Możesz dodawać wpisy do dziennika, planować spotkania,
 i listę zadań do zrobienia. KOrganizer przypomni Ci o sprawach do
 załatwienia i pomoże Ci trzymać się planu.
+
+%package data
+Summary:	Data files for %{kaname}
+Summary(pl.UTF-8):	Dane dla %{kaname}
+Group:		X11/Applications/Editors
+Obsoletes:	ka5-%{kaname}-data < %{version}
+Requires(post,postun):	desktop-file-utils
+BuildArch:	noarch
+
+%description data
+Data files for %{kaname}.
+
+%description data -l pl.UTF-8
+Dane dla %{kaname}.
 
 %prep
 %setup -q -n %{kaname}-%{version}
@@ -113,13 +127,17 @@ rm -rf $RPM_BUILD_ROOT
 
 %post
 /sbin/ldconfig
+
+%post data
 %update_desktop_database_post
 
 %postun
 /sbin/ldconfig
+
+%postun data
 %update_desktop_database_postun
 
-%files -f %{kaname}.lang
+%files
 %defattr(644,root,root,755)
 %attr(755,root,root) %{_bindir}/korganizer
 %ghost %{_libdir}/libkorganizer_core.so.6
@@ -129,19 +147,6 @@ rm -rf $RPM_BUILD_ROOT
 %ghost %{_libdir}/libkorganizerprivate.so.6
 %{_libdir}/libkorganizerprivate.so.*.*
 %{_libdir}/qt6/plugins/korganizerpart.so
-%{_desktopdir}/korganizer-import.desktop
-%{_desktopdir}/org.kde.korganizer.desktop
-%{_datadir}/config.kcfg/korganizer.kcfg
-%{_datadir}/dbus-1/interfaces/org.kde.Korganizer.Calendar.xml
-%{_datadir}/dbus-1/interfaces/org.kde.korganizer.Korganizer.xml
-%{_iconsdir}/hicolor/*x*/apps/*.png
-%{_iconsdir}/hicolor/scalable/apps/*.svg*
-%{_datadir}/korganizer
-%{_datadir}/metainfo/org.kde.korganizer.appdata.xml
-%{_datadir}/qlogging-categories6/korganizer.categories
-%{_datadir}/qlogging-categories6/korganizer.renamecategories
-%{_desktopdir}/korganizer-view.desktop
-%{_datadir}/dbus-1/services/org.kde.korganizer.service
 %dir %{_libdir}/qt6/plugins/pim6/kcms/korganizer
 %{_libdir}/qt6/plugins/pim6/kcms/korganizer/korganizer_configcolorsandfonts.so
 %{_libdir}/qt6/plugins/pim6/kcms/korganizer/korganizer_configfreebusy.so
@@ -164,4 +169,20 @@ rm -rf $RPM_BUILD_ROOT
 %{_libdir}/qt6/plugins/pim6/korganizer/lunarphases.so
 %{_libdir}/qt6/plugins/pim6/korganizer/picoftheday.so
 %{_libdir}/qt6/plugins/pim6/korganizer/thisdayinhistory.so
+
+%files data -f %{kaname}.lang
+%defattr(644,root,root,755)
+%{_desktopdir}/korganizer-import.desktop
+%{_desktopdir}/org.kde.korganizer.desktop
+%{_datadir}/config.kcfg/korganizer.kcfg
+%{_datadir}/dbus-1/interfaces/org.kde.Korganizer.Calendar.xml
+%{_datadir}/dbus-1/interfaces/org.kde.korganizer.Korganizer.xml
+%{_iconsdir}/hicolor/*x*/apps/*.png
+%{_iconsdir}/hicolor/scalable/apps/*.svg*
+%{_datadir}/korganizer
+%{_datadir}/metainfo/org.kde.korganizer.appdata.xml
+%{_datadir}/qlogging-categories6/korganizer.categories
+%{_datadir}/qlogging-categories6/korganizer.renamecategories
+%{_desktopdir}/korganizer-view.desktop
+%{_datadir}/dbus-1/services/org.kde.korganizer.service
 %{_iconsdir}/hicolor/scalable/status/*.svg
