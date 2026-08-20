@@ -1,18 +1,18 @@
 #
 # Conditional build:
 %bcond_with	tests		# build with tests
-%define		kdeappsver	26.04.3
-%define		kframever	5.94.0
+%define		kdeappsver	26.08.0
+%define		kframever	6.29.0
 %define		qtver		5.15.2
 %define		kaname		korganizer
 Summary:	korganizer
 Name:		ka6-%{kaname}
-Version:	26.04.3
+Version:	26.08.0
 Release:	1
 License:	GPL v2+/LGPL v2.1+
 Group:		X11/Applications
 Source0:	https://download.kde.org/stable/release-service/%{kdeappsver}/src/%{kaname}-%{version}.tar.xz
-# Source0-md5:	bbc276d7ee0947206ae3921a00c9bce9
+# Source0-md5:	aa05bfb225673709460bbf714c1bb22f
 URL:		http://www.kde.org/
 BuildRequires:	Qt6Core-devel >= %{qtver}
 BuildRequires:	Qt6DBus-devel
@@ -34,7 +34,6 @@ BuildRequires:	ka6-kcalutils-devel >= %{kdeappsver}
 BuildRequires:	ka6-kidentitymanagement-devel >= %{kdeappsver}
 BuildRequires:	ka6-kldap-devel >= %{kdeappsver}
 BuildRequires:	ka6-kmailtransport-devel >= %{kdeappsver}
-BuildRequires:	ka6-kmime-devel >= %{kdeappsver}
 BuildRequires:	ka6-kontactinterface-devel >= %{kdeappsver}
 BuildRequires:	ka6-kpimtextedit-devel >= %{kdeappsver}
 BuildRequires:	ka6-libkdepim-devel >= %{kdeappsver}
@@ -53,6 +52,7 @@ BuildRequires:	kf6-kholidays-devel >= %{kframever}
 BuildRequires:	kf6-kiconthemes-devel >= %{kframever}
 BuildRequires:	kf6-kitemviews-devel >= %{kframever}
 BuildRequires:	kf6-kjobwidgets-devel >= %{kframever}
+BuildRequires:	kf6-kmime-devel >= %{kframever}
 BuildRequires:	kf6-knewstuff-devel >= %{kframever}
 BuildRequires:	kf6-knotifications-devel >= %{kframever}
 BuildRequires:	kf6-kparts-devel >= %{kframever}
@@ -185,4 +185,3 @@ rm -rf $RPM_BUILD_ROOT
 %{_datadir}/qlogging-categories6/korganizer.renamecategories
 %{_desktopdir}/korganizer-view.desktop
 %{_datadir}/dbus-1/services/org.kde.korganizer.service
-%{_iconsdir}/hicolor/scalable/status/*.svg
